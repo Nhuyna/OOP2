@@ -2,6 +2,7 @@ public class TheThuVien {
     private String maThe; // Mã thẻ
     private String loaiThe; // Loại thẻ A hoặc B
     private int soNgayMuon; // Số ngày có thể mượn sách
+    private int slSachMuon;
     private double phiThuongNien; // Phí thường niên
 
     // Constructor để tạo thẻ thư viện, mặc định sẽ có loại thẻ A hoặc B
@@ -12,9 +13,11 @@ public class TheThuVien {
         if (loaiThe.equals("A")) {
             this.soNgayMuon = 30; // Thẻ A mượn 30 ngày
             this.phiThuongNien = 100000; // Phí thường niên cho thẻ A
+            this.slSachMuon=7;
         } else if (loaiThe.equals("B")) {
             this.soNgayMuon = 15; // Thẻ B mượn 15 ngày
             this.phiThuongNien = 50000; // Phí thường niên cho thẻ B
+            this.slSachMuon=4;
         } else {
             this.soNgayMuon = 0;
             this.phiThuongNien = 0;

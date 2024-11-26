@@ -2,16 +2,14 @@ import java.util.Scanner;
 
 public class Menu implements QuyTrinhQuanLy{
     public static void MenuQLTV(){
-
-        
-        // Tạo thủ thư và quy trình quản lý
-        QuyTrinhQuanLy quyTrinhQuanLy = new QuyTrinhQuanLyImpl();
+        QuyTrinhQuanLy quyTrinhQuanLy=new Menu();
 
         // Thêm sách vào hệ thống
-        quyTrinhQuanLy.themSach(sach1);
-        quyTrinhQuanLy.themSach(sach2);
+        //Test thôi
+        quyTrinhQuanLy.themSach(sach1,dsSach);
+        
 
-        // Menu cho người dùng
+        // Menu cho thủ thư
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -20,10 +18,10 @@ public class Menu implements QuyTrinhQuanLy{
             System.out.println("1. Thêm sách");
             System.out.println("2. Xóa sách");
             System.out.println("3. Sửa thông tin sách");
-            System.out.println("4. Tìm kiếm sách");
+            System.out.println("4. Xem thể loại");
             System.out.println("5. Thống kê sách");
-            System.out.println("6. Thêm thẻ thư viện");
-            System.out.println("7. Xóa thẻ thư viện");
+            System.out.println("6. Thêm thể loại");
+            System.out.println("7. Xóa thể loại");
             System.out.println("8. Thêm người mượn");
             System.out.println("9. Xóa người mượn");
             System.out.println("10. Mượn sách");
@@ -144,7 +142,7 @@ public class Menu implements QuyTrinhQuanLy{
                     // Trả sách
                     //Nhập id người trả
                     //Tìm kiếm thông tin mượn theo id người Mượn
-                    
+
                 case 12:
                     // Thoát
                     System.out.println("Thoát chương trình.");
@@ -155,6 +153,149 @@ public class Menu implements QuyTrinhQuanLy{
         } while (choice != 12);
 
         scanner.close();
+    }
+    public static void NguoiDung(){
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("\n===== Menu =====");
+            System.out.println("1. Xem các đầu sách đang có trong thư viện");
+            System.out.println("2. Xem các thế loại đang có trong thư viện");
+            System.out.println("3. Xem thông tin của bạn");
+            System.out.println("4. Xem thông tin mượn sách của bạn");
+            System.out.println("5. Xem các tác giả ");
+            System.out.println("6. Xem nhà xuất bản");
+            System.out.println("7. Tìm kiếm sách theo tác giả");
+            System.out.println("8. Xem các tựa sách đang có trong thư viện của nhà xuất bản bất kì");
+            System.out.println("9. Tìm kiếm nhà xuất bản");
+            System.out.println("10. Tìm kiếm theo tên sách");
+            System.out.println("11. Tìm kiếm thể loại");
+            System.out.println("12. Tìm kiếm tác giả(tên tác giả)");
+
+            System.out.print("Chọn chức năng: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();  // Đọc bỏ ký tự newline
+
+            switch (choice) {
+                case 1:
+                    // Thêm sách
+                    //Nhập thông tin sách mới   
+                    //Hàm Nhập bên sách có return sách
+                    //Hàm  thêm sách bên thủ thư
+                    Sach tmp=new Sach();
+                    // System.out.print("Nhập mã sách: ");
+                    // //Kiểm tra mã sách đã tồn tại trong danh sách sách chưa
+                    // String maSach = scanner.nextLine();
+                    // System.out.print("Nhập tên sách: ");
+                    // String tenSach = scanner.nextLine();
+                    // System.out.print("Nhập mã tác giả: ");
+                    // //Kiểm tra mã tác giả đã tồn tại chưa. Nếu chưa hỏi có muốn thêm tác giả mới kh
+                    // //Hàm thêm tác giả để bên TacGia
+                    // String tacGia = scanner.nextLine();
+                    // System.out.print("Nhập nhà xuất bản: ");
+                    // String nhaXuatBan = scanner.nextLine();
+                    quyTrinhQuanLy.themSach(tmp,);
+                    break;
+                case 2:
+                    // Xóa sách
+                    System.out.print("Nhập mã sách cần xóa: ");
+                    maSach = scanner.nextLine();
+                    quyTrinhQuanLy.xoaSach(maSach);
+                    break;
+                case 3:
+                    // Sửa sách
+                    // System.out.print("Nhập mã sách cần sửa: ");
+                    // maSach = scanner.nextLine();
+                    // System.out.print("Nhập tên sách mới: ");
+                    // tenSach = scanner.nextLine();
+                    // System.out.print("Nhập tác giả mới: ");
+                    // tacGia = scanner.nextLine();
+                    // System.out.print("Nhập nhà xuất bản mới: ");
+                    // nhaXuatBan = scanner.nextLine();
+                    // quyTrinhQuanLy.suaSach(maSach, tenSach, tacGia, nhaXuatBan);
+                    break;
+                case 4:
+                    // Tìm kiếm sách
+                    System.out.print("Nhập từ khóa tìm kiếm sách: ");
+                    String tuKhoa = scanner.nextLine();
+                    quyTrinhQuanLy.timKiemSach(tuKhoa);
+                    break;
+                case 5:
+                    // Thống kê sách
+                    quyTrinhQuanLy.thongKeSach();
+                    break;
+                case 6:
+                    // Thêm thẻ thư viện
+
+                    //Thêm kiểm tra chỉ được nhập loại thẻ là A hoặc B
+                    System.out.print("Nhập mã thẻ thư viện: ");
+                    String maThe = scanner.nextLine();
+                    System.out.print("Nhập loại thẻ: ");
+                    String loaiThe = scanner.nextLine();
+                    scanner.nextLine();  // Đọc bỏ ký tự newline
+                    quyTrinhQuanLy.themTheThuVien(new TheThuVien(maThe, loaiThe));
+                    break;
+                case 7:
+                    // Xóa thẻ thư viện
+                    System.out.print("Nhập mã thẻ thư viện cần xóa: ");
+                    maThe = scanner.nextLine();
+                    quyTrinhQuanLy.xoaTheThuVien(maThe);
+                    break;
+                case 8:
+                    // Thêm người mượn
+                    System.out.print("Nhập mã người mượn: ");
+                    String maNguoiMuon = scanner.nextLine();
+                    System.out.print("Nhập tên người mượn: ");
+                    String tenNguoiMuon = scanner.nextLine();
+                    quyTrinhQuanLy.themNguoiMuon(new NguoiMuon(maNguoiMuon, tenNguoiMuon));
+                    break;
+                case 9:
+                    // Xóa người mượn
+                    System.out.print("Nhập mã người mượn cần xóa: ");
+                    maNguoiMuon = scanner.nextLine();
+                    quyTrinhQuanLy.xoaNguoiMuon(maNguoiMuon);
+                    break;
+                case 10:
+                    // Mượn sách
+                    System.out.print("Nhập mã người mượn: ");
+                    maNguoiMuon = scanner.nextLine();
+                    System.out.print("Nhập mã sách mượn: ");
+                    maSach = scanner.nextLine();
+                    NguoiMuon nguoiMuon = null;
+                    Sach sach = null;
+                    // Tìm người mượn và sách theo mã
+                    for (NguoiMuon nm : quyTrinhQuanLy.nguoiMuonList) {
+                        if (nm.getMaNguoiMuon().equals(maNguoiMuon)) {
+                            nguoiMuon = nm;
+                            break;
+                        }
+                    }
+                    for (Sach s : quyTrinhQuanLy.sachList) {
+                        if (s.getMaSach().equals(maSach)) {
+                            sach = s;
+                            break;
+                        }
+                    }
+                    if (nguoiMuon != null && sach != null) {
+                        quyTrinhQuanLy.muonSach(nguoiMuon, sach);
+                    } else {
+                        System.out.println("Không tìm thấy sách hoặc người mượn.");
+                    }
+                    break;
+                case 11:
+                    // Trả sách
+                    //Nhập id người trả
+                    //Tìm kiếm thông tin mượn theo id người Mượn
+
+                case 12:
+                    // Thoát
+                    System.out.println("Thoát chương trình.");
+                    break;
+                default:
+                    System.out.println("Chọn chức năng không hợp lệ. Vui lòng thử lại.");
+            }
+        } while (choice != 12);
+       
     }
     @Override
     public void themSach(Sach sach,Sach [] dsSach) {
