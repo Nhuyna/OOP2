@@ -1,0 +1,18 @@
+17
+1001;Penguin Books
+1002;HarperCollins
+1003;Hachette Livre
+1004;Oxford University Press
+1005;Random House
+1006;Macmillan
+1007;Scholastic
+1008;Simon & Schuster
+1009;Bloomsbury Publishing
+1010;Knopf Doubleday Publishing Group
+1011;Pearson Education
+1012;Wiley
+1013;Cambridge University Press
+1014;Routledge
+1015;University of Chicago Press
+1016;Alfred A. Knopf
+1017;Farrar, Straus and Giroux

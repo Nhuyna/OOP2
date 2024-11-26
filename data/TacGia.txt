@@ -1,0 +1,19 @@
+17
+1001;J.K. Rowling;1965
+1002;Harper Lee;1926
+1003;George Orwell;1903
+1004;Jane Austen;1775
+1005;F. Scott Fitzgerald;1896
+1006;Herman Melville;1819
+1007;Leo Tolstoy;1828
+1008;J.D. Salinger;1919
+1009;J.R.R. Tolkien;1892
+1010;Fyodor Dostoevsky;1821
+1011;Charlotte Brontë;1816
+1012;Aldous Huxley;1894
+1013;Mark Twain;1835
+1014;Homer;8th century BC
+1015;Victor Hugo;1802
+1016;Oscar Wilde;1854
+1017;Dante Alighieri;1265
+1018;Nguyễn Nhật Ánh;1955
