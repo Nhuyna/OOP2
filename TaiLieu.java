@@ -13,7 +13,7 @@ public class TaiLieu {
         this.viTri = viTri;
         this.tacGia = tacGia;
     }
-
+   public TaiLieu(){}
     // Getter và Setter
     public String getMaTaiLieu() {
         return maTaiLieu;

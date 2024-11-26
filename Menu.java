@@ -2,10 +2,7 @@ import java.util.Scanner;
 
 public class Menu implements QuyTrinhQuanLy{
     public static void MenuQLTV(){
-         Sach sach1 = new Sach("S001", "Sách 1", "Tác Giả A", "NXB A", "Đang rảnh");
-        Sach sach2 = new Sach("S002", "Sách 2", "Tác Giả B", "NXB B", "Đang rảnh");
-        NguoiMuon nguoiMuon = new NguoiMuon("GM01", "Người Mượn A");
-        TheThuVien theThuVien = new TheThuVien("A001", 30, 100);
+
         
         // Tạo thủ thư và quy trình quản lý
         QuyTrinhQuanLy quyTrinhQuanLy = new QuyTrinhQuanLyImpl();
@@ -40,15 +37,22 @@ public class Menu implements QuyTrinhQuanLy{
             switch (choice) {
                 case 1:
                     // Thêm sách
-                    System.out.print("Nhập mã sách: ");
-                    String maSach = scanner.nextLine();
-                    System.out.print("Nhập tên sách: ");
-                    String tenSach = scanner.nextLine();
-                    System.out.print("Nhập tác giả: ");
-                    String tacGia = scanner.nextLine();
-                    System.out.print("Nhập nhà xuất bản: ");
-                    String nhaXuatBan = scanner.nextLine();
-                    quyTrinhQuanLy.themSach(new Sach(maSach, tenSach, tacGia, nhaXuatBan, "Đang rảnh"));
+                    //Nhập thông tin sách mới   
+                    //Hàm Nhập bên sách có return sách
+                    //Hàm  thêm sách bên thủ thư
+                    Sach tmp=new Sach();
+                    // System.out.print("Nhập mã sách: ");
+                    // //Kiểm tra mã sách đã tồn tại trong danh sách sách chưa
+                    // String maSach = scanner.nextLine();
+                    // System.out.print("Nhập tên sách: ");
+                    // String tenSach = scanner.nextLine();
+                    // System.out.print("Nhập mã tác giả: ");
+                    // //Kiểm tra mã tác giả đã tồn tại chưa. Nếu chưa hỏi có muốn thêm tác giả mới kh
+                    // //Hàm thêm tác giả để bên TacGia
+                    // String tacGia = scanner.nextLine();
+                    // System.out.print("Nhập nhà xuất bản: ");
+                    // String nhaXuatBan = scanner.nextLine();
+                    quyTrinhQuanLy.themSach(tmp,);
                     break;
                 case 2:
                     // Xóa sách
@@ -58,15 +62,15 @@ public class Menu implements QuyTrinhQuanLy{
                     break;
                 case 3:
                     // Sửa sách
-                    System.out.print("Nhập mã sách cần sửa: ");
-                    maSach = scanner.nextLine();
-                    System.out.print("Nhập tên sách mới: ");
-                    tenSach = scanner.nextLine();
-                    System.out.print("Nhập tác giả mới: ");
-                    tacGia = scanner.nextLine();
-                    System.out.print("Nhập nhà xuất bản mới: ");
-                    nhaXuatBan = scanner.nextLine();
-                    quyTrinhQuanLy.suaSach(maSach, tenSach, tacGia, nhaXuatBan);
+                    // System.out.print("Nhập mã sách cần sửa: ");
+                    // maSach = scanner.nextLine();
+                    // System.out.print("Nhập tên sách mới: ");
+                    // tenSach = scanner.nextLine();
+                    // System.out.print("Nhập tác giả mới: ");
+                    // tacGia = scanner.nextLine();
+                    // System.out.print("Nhập nhà xuất bản mới: ");
+                    // nhaXuatBan = scanner.nextLine();
+                    // quyTrinhQuanLy.suaSach(maSach, tenSach, tacGia, nhaXuatBan);
                     break;
                 case 4:
                     // Tìm kiếm sách
@@ -80,16 +84,14 @@ public class Menu implements QuyTrinhQuanLy{
                     break;
                 case 6:
                     // Thêm thẻ thư viện
+
+                    //Thêm kiểm tra chỉ được nhập loại thẻ là A hoặc B
                     System.out.print("Nhập mã thẻ thư viện: ");
                     String maThe = scanner.nextLine();
                     System.out.print("Nhập loại thẻ: ");
                     String loaiThe = scanner.nextLine();
-                    System.out.print("Nhập phí thường niên: ");
-                    double phiThue = scanner.nextDouble();
-                    System.out.print("Nhập số ngày mượn: ");
-                    int soNgayMuon = scanner.nextInt();
                     scanner.nextLine();  // Đọc bỏ ký tự newline
-                    quyTrinhQuanLy.themTheThuVien(new TheThuVien(maThe, soNgayMuon, phiThue));
+                    quyTrinhQuanLy.themTheThuVien(new TheThuVien(maThe, loaiThe));
                     break;
                 case 7:
                     // Xóa thẻ thư viện
@@ -140,28 +142,9 @@ public class Menu implements QuyTrinhQuanLy{
                     break;
                 case 11:
                     // Trả sách
-                    System.out.print("Nhập mã người mượn: ");
-                    maNguoiMuon = scanner.nextLine();
-                    System.out.print("Nhập mã sách trả: ");
-                    maSach = scanner.nextLine();
-                    for (NguoiMuon nm : quyTrinhQuanLy.nguoiMuonList) {
-                        if (nm.getMaNguoiMuon().equals(maNguoiMuon)) {
-                            nguoiMuon = nm;
-                            break;
-                        }
-                    }
-                    for (Sach s : quyTrinhQuanLy.sachList) {
-                        if (s.getMaSach().equals(maSach)) {
-                            sach = s;
-                            break;
-                        }
-                    }
-                    if (nguoiMuon != null && sach != null) {
-                        quyTrinhQuanLy.traSach(nguoiMuon, sach);
-                    } else {
-                        System.out.println("Không tìm thấy sách hoặc người mượn.");
-                    }
-                    break;
+                    //Nhập id người trả
+                    //Tìm kiếm thông tin mượn theo id người Mượn
+                    
                 case 12:
                     // Thoát
                     System.out.println("Thoát chương trình.");
@@ -174,9 +157,9 @@ public class Menu implements QuyTrinhQuanLy{
         scanner.close();
     }
     @Override
-    public void themSach(Sach sach) {
+    public void themSach(Sach sach,Sach [] dsSach) {
         ThuThu a=new ThuThu();
-        a.themSach(null, sach);
+        a.themSach(dsSach, sach);
 
     }
 

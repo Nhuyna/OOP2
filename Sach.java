@@ -7,7 +7,9 @@ public class Sach extends TaiLieu {
         this.soTrang = soTrang;
         this.TheLoai=TheLoai;
     }
-
+    public Sach(){
+        
+    }
     // Getter và Setter
     public int getSoTrang() {
         return soTrang;

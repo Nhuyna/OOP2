@@ -1,12 +1,11 @@
 public class ThuThu extends ConNguoi {
     private String maThuThu;  // Mã thủ thư
-    private String chucVu;    // Chức vụ của thủ thư (Ví dụ: quản lý sách, thủ thư chính...)
+
 
     // Constructor
-    public ThuThu(String maThuThu, String ten, int tuoi, String diaChi, String chucVu) {
+    public ThuThu(String maThuThu, String ten, int tuoi, String diaChi) {
         super(ten, tuoi, diaChi);  // Gọi constructor của lớp ConNguoi
         this.maThuThu = maThuThu;
-        this.chucVu = chucVu;
     }
     public ThuThu(){
 
@@ -20,20 +19,12 @@ public class ThuThu extends ConNguoi {
         this.maThuThu = maThuThu;
     }
 
-    public String getChucVu() {
-        return chucVu;
-    }
-
-    public void setChucVu(String chucVu) {
-        this.chucVu = chucVu;
-    }
 
     // Phương thức hiển thị thông tin thủ thư
     @Override
     public void hienThiThongTin() {
         super.hienThiThongTin();  // Hiển thị thông tin của người (từ lớp ConNguoi)
         System.out.println("Mã thủ thư: " + maThuThu);
-        System.out.println("Chức vụ: " + chucVu);
     }
 
     // Các chức năng quản lý sách

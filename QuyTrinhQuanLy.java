@@ -1,7 +1,7 @@
 public interface QuyTrinhQuanLy {
 
     // Quản lý sách
-    void themSach(Sach sach);
+    void themSach(Sach sach,Sach []dsSach);
     void xoaSach(String maSach);
     void suaSach(String maSach, String tenSach, String tacGia, String nhaXuatBan);
     void timKiemSach(String tuKhoa);
@@ -12,6 +12,7 @@ public interface QuyTrinhQuanLy {
     void suaTheThuVien(String maThe, String loaiThe);
     void xoaTheThuVien(String maThe);
 
+   
     // Quản lý người mượn
     void themNguoiMuon(NguoiMuon nguoiMuon);
     void xoaNguoiMuon(String maNguoiMuon);
