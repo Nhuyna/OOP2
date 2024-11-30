@@ -1,16 +1,17 @@
 public class ConNguoi {
-    private String ten;        // Tên của người
-    private int tuoi;          // Tuổi của người
-    private String diaChi;     // Địa chỉ của người
+    protected String ten;       // Tên của người 
+    protected int tuoi;         // Tuổi của người
+    protected String diaChi;    // Địa chỉ của người
 
-    // Constructor
+    // Constructor có tham số
     public ConNguoi(String ten, int tuoi, String diaChi) {
         this.ten = ten;
         this.tuoi = tuoi;
         this.diaChi = diaChi;
     }
-    public ConNguoi(){
-        
+
+    // Constructor mặc định
+    public ConNguoi() {
     }
 
     // Getter và Setter
@@ -27,7 +28,11 @@ public class ConNguoi {
     }
 
     public void setTuoi(int tuoi) {
-        this.tuoi = tuoi;
+        if (tuoi > 18) {
+            this.tuoi = tuoi;
+        } else {
+            throw new IllegalArgumentException("Tuoi phai lon hon 18.");
+        }
     }
 
     public String getDiaChi() {
@@ -38,7 +43,7 @@ public class ConNguoi {
         this.diaChi = diaChi;
     }
 
-    // Phương thức hiển thị thông tin của người
+    // Phương thức hiển thị thông tin
     public void hienThiThongTin() {
         System.out.println("Tên: " + ten);
         System.out.println("Tuổi: " + tuoi);
